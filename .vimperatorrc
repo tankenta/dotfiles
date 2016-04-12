@@ -1,0 +1,19 @@
+" vim: set filetype=vim :
+" 入力時に自動フォーカスしない 
+set focuscontent
+
+"=========================
+" Key mapping
+"=========================
+" 高速移動 上下移動は滑らかに
+nnoremap <S-j> 2j2j2j2j2j
+nnoremap <S-k> 2k2k2k2k2k
+
+" google 検索
+nnoremap s :open<Space>google<Space>
+nnoremap <S-s> :tabopen<Space>google<Space>
+
+" visual モードで C-g で選択中テキストを google 検索
+vmap <silent><C-g> y<Esc><Esc>P
+
+

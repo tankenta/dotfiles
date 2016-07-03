@@ -69,6 +69,7 @@ endif
 " === Folding ===
 autocmd FileType * set foldmethod=syntax
 autocmd FileType python set foldmethod=indent
+autocmd FileType cpp set foldmethod=indent
 autocmd FileType glsl set foldmethod=indent
 autocmd FileType verilog set foldmethod=indent
 autocmd FileType text set foldmethod=indent
@@ -89,7 +90,9 @@ autocmd FileType * set tabstop=4 | set shiftwidth=4 | set noexpandtab
 " Soft Tab
 autocmd FileType javascript set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType ruby 		set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd Filetype cpp 		set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType python     set tabstop=4 | set shiftwidth=4 | set expandtab
+autocmd FileType tex     	set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType neosnippet set noexpandtab "効いていない？
 
 "===============================
@@ -340,6 +343,13 @@ let g:neosnippet#snippets_directory = s:my_snippet
 
 NeoBundle "Shougo/neosnippet-snippets"
 
+NeoBundle "thinca/vim-quickrun"
+let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
+let g:quickrun_config.processing = {
+			\	'command': 'processing-java',
+			\	'exec': '%c --sketch=$PWD/ --output=/$PWD/output --force --run',
+			\	}
+
 NeoBundle 'tyru/caw.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'tpope/vim-surround'
@@ -353,7 +363,7 @@ NeoBundle 'tomasr/molokai'
 "=== GLSL ===
 NeoBundle 'tikhomirov/vim-glsl'
 
-"===C/C++ ===
+"=== C/C++ ===
 NeoBundleLazy 'vim-jp/cpp-vim', {
 			\ 'autoload':{ 'filetypes':[ 'cpp' ]} }
 " NeoBundleLazy 'Rip-Rip/clang_complete', {
@@ -361,6 +371,13 @@ NeoBundleLazy 'vim-jp/cpp-vim', {
 NeoBundleLazy 'osyo-manga/vim-marching', {
 			\ 'autoload':{ 'filetypes':[ 'c', 'cpp' ]},
 			\ 'depends' : ['Shougo/vimproc'] }
+
+"=== Processing ===
+NeoBundleLazy 'sophacles/vim-processing', {
+			\ 'autoload':{ 'filetypes':[ 'processing' ]} }
+
+"=== TeX ===
+let g:tex_conceal = ''
 
 NeoBundleCheck
 call neobundle#end()

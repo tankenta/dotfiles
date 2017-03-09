@@ -93,6 +93,7 @@ autocmd FileType ruby 		set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd Filetype cpp 		set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType python     set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType tex     	set tabstop=4 | set shiftwidth=4 | set expandtab
+autocmd FileType matlab     set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType neosnippet set noexpandtab "効いていない？
 
 "===============================
@@ -202,6 +203,11 @@ function! s:ChangeCurrentDir(directory, bang)
         pwd
     endif
 endfunction
+
+" omni補完
+inoremap <C-o> <C-x><C-o>
+" Escで補完ポップアップを閉じて標準モード
+inoremap <expr><Esc> pumvisible() ? neocomplete#close_popup()."<Esc>" : "<Esc>"
 
 
 "===============================
@@ -372,6 +378,19 @@ NeoBundleLazy 'osyo-manga/vim-marching', {
 			\ 'autoload':{ 'filetypes':[ 'c', 'cpp' ]},
 			\ 'depends' : ['Shougo/vimproc'] }
 
+"=== Python ===
+" NeoBundleLazy 'davidhalter/jedi-vim', {
+" 			\ 'autoload':{ 'filetypes':[ 'python' ]} } "sudo pip install jedi pep8 pyflakes
+
+"=== JavaScript ===
+NeoBundleLazy 'marijnh/tern_for_vim', {
+			\ 'autoload':{ 'filetypes':[ 'javascript' ]},
+			\ 'build': { 'others': 'npm install' } }
+NeoBundleLazy 'pangloss/vim-javascript', {
+		 	\ 'autoload':{ 'filetypes':[ 'javascript' ]} }
+NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
+		 	\ 'autoload':{ 'filetypes':[ 'javascript' ]} }
+
 "=== Processing ===
 NeoBundleLazy 'sophacles/vim-processing', {
 			\ 'autoload':{ 'filetypes':[ 'processing' ]} }
@@ -447,6 +466,53 @@ nmap \C <Plug>(caw:I:uncomment)
 vmap \C <Plug>(caw:I:uncomment)
 
 " jedi-vim
-let g:jedi#auto_vim_configuration = 0
-autocmd FileType python setlocal completeopt-=preview
+" autocmd FileType python setlocal omnifunc=jedi#completions
+" autocmd FileType python setlocal completeopt-=preview
+" let g:jedi#popup_select_first = 0
+" let g:jedi#completions_enabled = 0
+" let g:jedi#auto_vim_configuration = 0
+" " disable showing function arguments in upper line
+" let g:jedi#show_call_signatures = 2
+" " non-auto close preview window
+" let g:jedi#auto_close_doc = 0
+
+" tern_for_vim
+au FileType javascript nmap <silent> <c-t> :TernType<CR>
+au FileType javascript nmap <silent> <Leader>d :TernDoc<CR>
+let g:tern_show_signature_in_pum = 1
+let g:tern#command = ["nodejs", expand('$HOME').'/.vim/bundle/tern_for_vim/node_modules/tern/bin/tern', '--no-port-file'] " for Ubuntu command
+
+" omni補完 omnifunc
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType c set omnifunc=ccomplete#Complete
+" autocmd FileType cpp set omnifunc=cppcomplete#Complete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType cs set omnifunc=OmniSharp#Complete
+" autocmd FileType python setlocal omnifunc=jedi#completions
+
+" omni補完 input_pattern
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+let g:neocomplete#sources#omni#input_patterns.javascript = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
+
+" omni補完 force_input_pattern
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+" let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*' // this one
+" let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 

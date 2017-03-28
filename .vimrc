@@ -395,6 +395,9 @@ NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
 NeoBundleLazy 'sophacles/vim-processing', {
 			\ 'autoload':{ 'filetypes':[ 'processing' ]} }
 
+"=== Arduino ===
+NeoBundle 'sudar/vim-arduino-syntax'
+
 "=== TeX ===
 let g:tex_conceal = ''
 

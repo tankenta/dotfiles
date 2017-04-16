@@ -42,6 +42,10 @@ modm = mod4Mask
 -- workspaces
 myWorkspaces = ["1", "2" ,"3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ]
 
+-- Border color
+mynormalBorderColor = "#262626"	-- #555577
+myfocusedBorderColor = "#90bbff" -- red
+
 -- layoutHook
 myTall = named "Tall" $ ResizableTall 1 (3/100) (1/2) []
 myStack = StackTile 2 (3/100) (5/6)
@@ -85,8 +89,8 @@ main = do
 		workspaces =  myWorkspaces,
 		-- Border settings
 		borderWidth = 3 ,
-		normalBorderColor  = "#555577" ,
-		focusedBorderColor = "red" ,
+		normalBorderColor  = mynormalBorderColor ,
+		focusedBorderColor = myfocusedBorderColor ,
 
 		-- Set Hiragana_Katakana as mod
 		modMask = mod3Mask ,

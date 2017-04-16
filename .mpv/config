@@ -1,0 +1,13 @@
+# Write your default config options here!
+
+cache=262144
+
+screenshot-format=png
+screenshot-template=/home/tanke/Pictures/mpv_Screenshots/%F_%wHh%wMm%wSs%wTms
+
+hwdec=vdpau
+vo-vdpau-sharpen=0.8
+vo-vdpau-deint=4
+vo-vdpau-hqscaling=1
+deinterlace
+

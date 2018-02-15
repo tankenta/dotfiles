@@ -7,6 +7,12 @@ mkdir .vim
 mv $HOME/.vim $HOME/_vim
 mv $HOME/.vimrc $HOME/_vimrc
 
+# スニペットとテンプレートファイルのコピー
+echo ">スニペットファイルをコピー"
+cp -r $PWD/vim-files/snippet $PWD/.vim/
+echo "テンプレートファイルをコピー"
+cp -r $PWD/vim-files/template $PWD/.vim/
+
 # シンボリックリンクを貼る
 echo ">シンボリックリンクを作成:.vim"
 ln -s $PWD/.vim $HOME

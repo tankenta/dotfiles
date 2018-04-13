@@ -27,15 +27,23 @@ git clone https://github.com/tankenta/dotfiles.git
 git config --global user.email "hkenta112@gmail.com"
 git config --global user.name "tankenta"
 
-# pyenv
+# common tools
+sudo apt-get install build-essential checkinstall
+
+# pyenv (without sudo)
 git clone git://github.com/yyuu/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile 
-echo 'eval "$(pyenv init -)"' >> ~/.profile 
-source ~/.profile
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+# echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc 
+# echo 'eval "$(pyenv init -)"' >> ~/.bashrc 
+# echo 'alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"' >> ~/.bashrc
+# echo 'alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"' >> ~/.bashrc
+source ~/.bashrc
 pyenv install miniconda3-4.3.30
 pyenv rehash
-echo 'alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"' >> ~/.bashrc
+pyenv global miniconda3-4.3.30
+conda update conda
+conda config --add channels conda-forge
+conda install matplotlib numpy opencv ipython
 
 # python
 # sudo apt-get install python-pip python-dev

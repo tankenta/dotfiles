@@ -120,3 +120,9 @@ alias mikutter='~/local/src/mikutter/mikutter.rb 2>> ~/local/src/mikutter/errlog
 # Fujiwara Tatsuya
 alias fujitatsu='python -c "print(\"\".join(map(lambda c: c + \"゛\".decode(\"utf-8\"), __import__(\"sys\").argv[1].decode(\"utf-8\"))))"'
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"
+alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"

@@ -149,6 +149,9 @@ ldd `which mpv` | grep not
 ## manual
 # https://mpv.io/manual/master/
 
+# bluetooth headphone
+sudo apt-get install pulseaudio-module-bluetooth
+
 # Arduino CLI tools
 git clone https://github.com/platformio/platformio.git
 sudo cp ./platformio/script/99-platformio-udev.rules /etc/udev/rules.d/

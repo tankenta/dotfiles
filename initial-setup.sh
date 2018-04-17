@@ -91,6 +91,8 @@ sudo update-pepperflashplugin-nonfree --install
 
 # image editer: fotoxx
 sudo apt-get install fotoxx
+# or pinta
+sudo apt-get install pinta
 
 # winehq-devel (2.0 or later)
 # http://tipsonubuntu.com/2017/07/23/wine-2-13-released-install-ubuntu/

@@ -79,8 +79,8 @@ sudo npm install -g markdown2pdf
 # Download slack
 sudo dpkg -i slack-desktop-*.deb
 
-# LibreOffice5.4
-sudo add-apt-repository ppa:libreoffice/libreoffice-5-4
+# LibreOffice
+sudo add-apt-repository ppa:libreoffice/ppa
 sudo apt-get update && sudo apt-get install libreoffice
 
 # firefox flash player

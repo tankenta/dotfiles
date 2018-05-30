@@ -94,6 +94,15 @@ sudo apt-get install fotoxx
 # or pinta
 sudo apt-get install pinta
 
+# gimp
+sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+sudo apt-get update
+sudo apt-get install gimp
+# inkscape
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt-get update
+sudo apt-get install inkscape
+
 # winehq-devel (2.0 or later)
 # http://tipsonubuntu.com/2017/07/23/wine-2-13-released-install-ubuntu/
 # https://www.winehq.org/pipermail/wine-devel/2017-March/117104.html

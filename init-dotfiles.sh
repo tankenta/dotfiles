@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 隠しファイルのみ取得してリンクを貼る
+# Create symbolic links only for hidden files
 for dotfile in .?*; do
     case $dotfile in
 	..)
@@ -12,7 +12,11 @@ for dotfile in .?*; do
 	.gitignore)
 		continue
 		;;
+	# vim config files are set by another script
 	.vim)
+		continue
+		;;
+	.vimrc)
 		continue
 		;;
 	*.swp)
@@ -24,9 +28,9 @@ for dotfile in .?*; do
 	.config)
 		continue
 		;;
-	# それ以外はシンボリックリンクを張る
+	# Others: Create symbolic links
 	*)
-		echo ">> シンボリックリンクを作成:$dotfile"
+		echo ">> Create symbolic link:$dotfile"
 		ln -s "$PWD/$dotfile" $HOME
 		;;
     esac

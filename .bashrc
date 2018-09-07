@@ -112,7 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PATH="$PATH":$HOME/local/bin
+export PATH=$HOME/local/bin:$PATH
 
 # mikutter
 alias mikutter='~/local/src/mikutter/mikutter.rb 2>> ~/local/src/mikutter/errlog &'

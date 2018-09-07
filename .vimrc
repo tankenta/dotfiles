@@ -89,11 +89,13 @@ set laststatus=2						" ステータスラインを常に表示
 autocmd FileType * set tabstop=4 | set shiftwidth=4 | set noexpandtab
 " Soft Tab
 autocmd FileType javascript set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType html		set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType ruby 		set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd Filetype cpp 		set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType python     set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType tex     	set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType matlab     set tabstop=4 | set shiftwidth=4 | set expandtab
+autocmd FileType fortran    set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType neosnippet set noexpandtab "効いていない？
 
 "===============================
@@ -400,6 +402,12 @@ NeoBundle 'sudar/vim-arduino-syntax'
 
 "=== TeX ===
 let g:tex_conceal = ''
+
+"=== Fortran ===
+let g:fortan_free_source = 1
+let g:fortran_fold = 1
+let g:fortran_fold_conditionals = 1
+let g:fortran_do_enddo = 1
 
 NeoBundleCheck
 call neobundle#end()

@@ -128,4 +128,9 @@ alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"
 alias vivado='sudo /opt/Xilinx/Vivado/2018.2/bin/vivado'
 
 # keyboard
-xmodmap ~/.Xmodmap
+if [ -f ~/.Xmodmap ]; then
+	xmodmap ~/.Xmodmap
+fi
+
+# other aliases
+alias calc='python -c "import sys; from numpy import *; exec('\''print({0})'\''.format('\'\''.join(sys.argv[1:])))"'

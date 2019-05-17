@@ -120,7 +120,7 @@ alias mikutter='~/local/src/mikutter/mikutter.rb 2>> ~/local/src/mikutter/errlog
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if [ -d $PYENV_ROOT ]; then eval "$(pyenv init -)"; fi
 alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"
 alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"
 
@@ -132,5 +132,9 @@ if [ -f ~/.Xmodmap ]; then
 	xmodmap ~/.Xmodmap
 fi
 
+# nvm
+if [ -d /usr/share/nvm ]; then source /usr/share/nvm/init-nvm.sh; fi
+
 # other aliases
 alias calc='python -c "import sys; from numpy import *; exec('\''print({0})'\''.format('\'\''.join(sys.argv[1:])))"'
+

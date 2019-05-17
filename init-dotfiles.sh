@@ -30,7 +30,12 @@ for dotfile in .?*; do
 		;;
 	# Others: Create symbolic links
 	*)
-		echo ">> Create symbolic link:$dotfile"
+		if [ -e "$HOME/$dotfile" ]; then
+			newpath="${HOME}/${dotfile}.bak"
+			echo ">> Backup old file: $HOME/$dotfile to $newpath"
+			mv "$HOME/$dotfile" $newpath
+		fi
+		echo ">> Create symbolic link: $dotfile"
 		ln -s "$PWD/$dotfile" $HOME
 		;;
     esac

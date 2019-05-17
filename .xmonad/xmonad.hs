@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Actions.ShowText
 import XMonad.Actions.WindowGo
-import XMonad.Config.Gnome
+import XMonad.Config.Xfce
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Util.Loggers (logCurrent)
 import XMonad.Util.Run
@@ -34,13 +34,13 @@ import qualified Data.Map        as M
 
 
 -- my apps
-myFiler = "nemo"
-myTerminal = "gnome-terminal"
+myFiler = "Thunar"
+myTerminal = "xfce4-terminal"
 myXmodmap = "xmodmap ~/.Xmodmap"
 -- mod mask key
 modm = mod4Mask   	 
 -- workspaces
-myWorkspaces = ["1", "2" ,"3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ]
+myWorkspaces = ["1", "2" ,"3", "4", "5", "6" ]
 
 -- Border color
 mynormalBorderColor = "#262626"	-- #555577
@@ -59,7 +59,7 @@ myFloat = named "Float" $ floatingDeco $ borderResize $ withBorder 4
 myLayout = avoidStruts $ toggleLayouts (noBorders Full) (myTall|||myStack|||myFloat)
 
 -- manageHook
-myManageHook = manageDocks <+> manageHook gnomeConfig <+> composeOne [
+myManageHook = manageDocks <+> manageHook xfceConfig <+> composeOne [
 				isFullscreen -?> doFullFloat,
 				isDialog -?> doFloat
 			 ] <+> composeAll [
@@ -67,19 +67,19 @@ myManageHook = manageDocks <+> manageHook gnomeConfig <+> composeOne [
 			 ]
 
 -- handleEventHook
-myHandleEventHook = handleEventHook gnomeConfig
+myHandleEventHook = handleEventHook xfceConfig
 					<+> handleTimerEvent -- Update Screen to Clear flashtext
 					<+> fullscreenEventHook
 
 main :: IO ()
 main = do
 	xmproc <- spawnPipe "xmobar"
-	xmonad $ gnomeConfig {
+	xmonad $ xfceConfig {
 		layoutHook = desktopLayoutModifiers( myLayout ),
 		manageHook = myManageHook ,
 		handleEventHook = myHandleEventHook ,
 		-- Send to xmobar
-		logHook = logHook gnomeConfig 
+		logHook = logHook xfceConfig 
 				<+> (dynamicLogWithPP $ xmobarPP
 					{ ppOutput = hPutStrLn xmproc
 					, ppTitle = xmobarColor "green" "" . shorten 50 })

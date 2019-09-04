@@ -390,6 +390,10 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
 			\ 'build': { 'others': 'npm install' } }
 NeoBundleLazy 'pangloss/vim-javascript', {
 		 	\ 'autoload':{ 'filetypes':[ 'javascript' ]} }
+NeoBundleLazy 'othree/yajs', {
+		 	\ 'autoload':{ 'filetypes':[ 'javascript' ]} }
+NeoBundleLazy 'maxmellon/vim-jsx-pretty', {
+		 	\ 'autoload':{ 'filetypes':[ 'javascript' ]} }
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
 		 	\ 'autoload':{ 'filetypes':[ 'javascript' ]} }
 

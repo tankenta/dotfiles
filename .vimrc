@@ -11,6 +11,7 @@ set whichwrap=b,s,h,l,<,>,[,]	" 行頭から前行文末へ移動可能にする
 " デフォルト不可視文字の代わりに綺麗な Unicode 文字を利用
 "set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:% ",eol:↲
 set cursorline    " カーソルラインハイライト
+set t_ut=         " WSLでの背景色
 set number        " 行番号の表示
 set wrap          " 長いテキストの折り返し
 set textwidth=0   " 自動的に改行が入るのを無効化
@@ -399,6 +400,9 @@ NeoBundleLazy 'sophacles/vim-processing', {
 
 "=== Arduino ===
 NeoBundle 'sudar/vim-arduino-syntax'
+
+"=== PlantUML ===
+NeoBundle 'aklt/plantuml-syntax'
 
 "=== TeX ===
 let g:tex_conceal = ''

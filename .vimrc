@@ -96,6 +96,7 @@ autocmd FileType python     set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType tex     	set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType matlab     set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType fortran    set tabstop=4 | set shiftwidth=4 | set expandtab
+autocmd FileType sql    	set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType neosnippet set noexpandtab "効いていない？
 
 "===============================

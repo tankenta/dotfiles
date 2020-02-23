@@ -124,6 +124,11 @@ if [ -d $PYENV_ROOT ]; then eval "$(pyenv init -)"; fi
 alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"
 alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"
 
+# rbenv
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
+if [ -d $RBENV_ROOT ]; then eval "$(rbenv init -)"; fi
+
 # vivado
 alias vivado='sudo /opt/Xilinx/Vivado/2018.2/bin/vivado'
 
@@ -137,4 +142,3 @@ if [ -d /usr/share/nvm ]; then source /usr/share/nvm/init-nvm.sh; fi
 
 # other aliases
 alias calc='python -c "import sys; from numpy import *; exec('\''print({0})'\''.format('\'\''.join(sys.argv[1:])))"'
-

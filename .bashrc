@@ -124,6 +124,10 @@ if [ -d $PYENV_ROOT ]; then eval "$(pyenv init -)"; fi
 alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"
 alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"
 
+# poetry
+if [ -f $HOME/.poetry/env ]; then source $HOME/.poetry/env; fi
+if [ -f $HOME/.poetry/bash_completion ]; then source $HOME/.poetry/bash_completion; fi
+
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$RBENV_ROOT/bin:$PATH"

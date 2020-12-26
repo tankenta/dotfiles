@@ -112,10 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=$HOME/local/bin:$PATH
-
-# mikutter
-alias mikutter='~/local/src/mikutter/mikutter.rb 2>> ~/local/src/mikutter/errlog &'
+export PATH=$HOME/.local/bin:$PATH
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

@@ -117,6 +117,7 @@ export PATH=$HOME/.local/bin:$PATH
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+if [ -d $PYENV_ROOT ]; then eval "$(pyenv init --path)"; fi
 if [ -d $PYENV_ROOT ]; then eval "$(pyenv init -)"; fi
 alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"
 alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"

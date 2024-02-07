@@ -83,10 +83,15 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+export LSCOLORS=gxfxcxdxbxegedabagacad
+alias ls='lsd'
+
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='lsd -alGF'
+alias la='lsd -A'
+alias l='lsd -CF'
+
+alias cat='bat'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -114,10 +119,12 @@ fi
 
 export PATH=$HOME/.local/bin:$PATH
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if [ -d $PYENV_ROOT ]; then eval "$(pyenv init --path)"; fi
 if [ -d $PYENV_ROOT ]; then eval "$(pyenv init -)"; fi
 alias activate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/activate"
 alias deactivate="source $PYENV_ROOT/versions/miniconda3-4.3.30/bin/deactivate"
@@ -141,6 +148,21 @@ fi
 
 # nvm
 if [ -d /usr/share/nvm ]; then source /usr/share/nvm/init-nvm.sh; fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # other aliases
 alias calc='python -c "import sys; from numpy import *; exec('\''print({0})'\''.format('\'\''.join(sys.argv[1:])))"'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/.local/build/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/.local/build/google-cloud-sdk/path.bash.inc"; fi
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/.local/build/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/.local/build/google-cloud-sdk/completion.bash.inc"; fi
+export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.8.9/bin/python"
+export CLOUDSDK_BQ_PYTHON="$HOME/.pyenv/versions/3.8.9/bin/python"
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+
+# starship
+eval "$(starship init bash)"

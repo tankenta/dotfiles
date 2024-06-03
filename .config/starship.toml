@@ -1,0 +1,16 @@
+[aws]
+symbol = " ☁️  "
+disabled = true
+
+[gcloud]
+format = 'on [$symbol$project]($style) '
+symbol = " ☁️  "
+disabled = false
+
+[package]
+disabled = true
+
+[cmd_duration]
+format = "took [ $duration]($style) "
+style = "bold dimmed white"
+disabled = false

@@ -29,6 +29,13 @@
   ];
 
   programs.fzf.enable = true;
+  programs.lsd = {
+    enable = true; # ls, ll, la, lt などのエイリアスも入る
+  };
+  programs.bat = {
+    enable = true;
+    config.theme = "Catppuccin Mocha";
+  };
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

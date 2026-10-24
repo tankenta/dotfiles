@@ -5,6 +5,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
+      cat = "bat --paging=never";
       hms = "home-manager switch --flake ~/src/github.com/tankenta/dotfiles";
     };
     history = {

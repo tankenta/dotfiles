@@ -4,6 +4,9 @@
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    shellAliases = {
+      hms = "home-manager switch --flake ~/src/github.com/tankenta/dotfiles";
+    };
     history = {
       size = 100000;
       save = 100000;

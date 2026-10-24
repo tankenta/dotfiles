@@ -1,13 +1,13 @@
 { pkgs, ... }:
 {
-  home.packages = [ pkgs.hackgen-nf-font ];
+  home.packages = [ pkgs.udev-gothic-nf ];
   fonts.fontconfig.enable = true;
 
   programs.ghostty = {
     enable = true;
     settings = {
-      font-family = "HackGen Console NF";
-      font-size = 12;
+      font-family = "UDEV Gothic NF";
+      font-size = 13;
       theme = "Catppuccin Mocha";
     };
   };

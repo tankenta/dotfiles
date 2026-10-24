@@ -28,6 +28,7 @@
     ripgrep
     fd
     jq
+    uv
   ];
 
   programs.fzf.enable = true;

@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       font-family = "UDEV Gothic NF";
-      font-size = 13;
+      font-size = 12;
       theme = "Catppuccin Mocha";
     };
   };

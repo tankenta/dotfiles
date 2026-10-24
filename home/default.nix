@@ -15,6 +15,7 @@
   targets.genericLinux.enable = true;
 
   programs.home-manager.enable = true;
+  news.display = "silent"; # switch のたびの「未読のお知らせ」表示を消す。読むときは home-manager news
 
   # Claude Code (ネイティブインストーラ) などが入る場所。bash では ~/.profile が足していた
   home.sessionPath = [ "$HOME/.local/bin" ];

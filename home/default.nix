@@ -5,6 +5,7 @@
     ./git.nix
     ./ghostty.nix
     ./nvim.nix
+    ./claude.nix
   ];
 
   home.username = "tanke";

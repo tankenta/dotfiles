@@ -22,6 +22,7 @@ sudo /nix/store/<hash>-non-nixos-gpu/bin/non-nixos-gpu-setup
 |---|---|
 | `home/` | home-manager モジュール (zsh + pure, git, Ghostty, Neovim, CLI ツール) |
 | `config/nvim/` | Neovim 設定。`~/.config/nvim` から直接リンク |
+| `config/claude/CLAUDE.md` | Claude Code のユーザー全体用 CLAUDE.md。`~/.claude/CLAUDE.md` から直接リンク |
 | `etc/` | Nix 外 (apt / `/etc`) で手作業設定したものの控え |
 
 ## Nix 外で手作業した設定

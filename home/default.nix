@@ -6,6 +6,7 @@
     ./ghostty.nix
     ./nvim.nix
     ./claude.nix
+    ./btop.nix
   ];
 
   home.username = "tanke";

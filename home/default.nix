@@ -30,6 +30,7 @@
     fd
     jq
     uv
+    nodejs # node, npm, npx。npm install -g は Nix の読み取り専用領域に書こうとして失敗するので npx で使う
   ];
 
   programs.fzf.enable = true;
